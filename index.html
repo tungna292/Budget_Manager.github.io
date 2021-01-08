@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Manager</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div style="text-align: center; display: block;" id="hello">
+        <!-- <button type="button" class="btn btn-info" >Hello </button>
+        <button id="logout" type="button" class="btn btn-primary">Log out</button> -->
+    </div>
+    <div class="wrapper">
+      
+        <!-- header -->
+        <div class="header">
+            <!-- <p id="monthpara">April </p> -->
+            <p id="monthpara"> </p>
+            <div class="balance">
+                <span>Accounts balance</span>
+                <h2 id="totalbalance">$ 0.00</h2>
+
+                <span> <i id="eyeopener" class="fa fa-eye" aria-hidden="true"></i> </span>
+            </div>
+
+            <div class="nav-tab">
+                <div class="income-tab tab">
+                   
+                    <p>
+                        <span>Incomes</span>
+                        <span> <strong id="income">$0.00 </strong> </span>
+
+                    </p>
+                </div>
+
+                <div class="expense-tab tab">
+                    
+                    <p>
+                        <span>Expenses</span>
+                        <span><strong id="expense">$0.00 </strong></span>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="content">
+            <strong class="mark">Activities</strong>
+            <ul id="activitylist"></ul>
+            <div class="actions" id="actions">
+
+                <div class="form-addnew" id="addnewform">
+                    <div class="selectdiv">
+                        Type : <select id="selecttype" name="Income">
+           <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+            </select> Categories : <select id="selectcategory" name="Clothing">
+              
+               <option value="money">Salary</option>
+               <option value="building">Real Estate</option>
+            
+
+           </select>
+
+                        <span id="closeform">X</span>
+                    </div>
+                    <input id="description" type="text" placeholder="Descriptions" required>
+
+                    <div class="footer">
+                        <input id="amount" type="number" placeholder="Amount" required>
+                        <button id="savebtn" class="btn-save"> Save</button>
+
+                    </div>
+
+                </div>
+                <button id="floatingbtn" class="floating-button">
+        +
+    </button>
+
+            </div>
+
+
+        </div>
+        <!-- footer -->
+
+        <div class="footer">
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="./budgetapp.js"></script>
+
+    <script>
+        var auth = localStorage.getItem('authedUser');
+        if (!auth || auth.trim().length == 0) {
+            alert('Vui lòng đăng nhập!');
+            location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>

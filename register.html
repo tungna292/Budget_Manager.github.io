@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Budget Manager || SignUp </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Custom Theme files -->
+    <link href="assets/css/register.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+        <h1>SignUp Form</h1>
+        <div class="main-agileinfo">
+            <div class="agileits-top">
+                <form action="#" method="post" onsubmit="return false;">
+                    <input id="username" class="text email" type="text" name="Username" placeholder="Username" required="">
+                    <input id="password" class="text" type="password" name="password" placeholder="Password" required="">
+                    <input id="vpassword" class="text w3lpass" type="password" name="vpassword" placeholder="Confirm Password" required="">
+                    <input type="submit" value="SIGNUP" onclick="register()">
+                </form>
+                <p>Don't have an Account? <a href="login.html"> Login Now!</a></p>
+            </div>
+        </div>
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        function register() {
+            var username = document.getElementById('username').value;
+            var user = localStorage.getItem(username);
+            var password = document.getElementById('password').value;
+            var vpassword = document.getElementById('vpassword').value;
+
+            if (password != vpassword) {
+                alert('Mật khẩu không khớp!');
+                return;
+            }
+            if (user) {
+                alert('Tài khoản đã tồn tại trên hệ thống!');
+                return;
+            }
+
+            var userinfo = {
+                password: password,
+                cash: 0,
+                admin: 0,
+                ActivityList: []
+            };
+            localStorage.setItem(username, JSON.stringify(userinfo));
+            localStorage.setItem('authedUser', username);
+            alert('Đăng nhập thành công!');
+            location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

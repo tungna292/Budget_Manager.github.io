@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Budget Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link type="stylesheet" href="admin.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body onload="onloadAll1()">
+    <div class="container-fluid p-0">
+        <div class="row m-0 p-0">
+            <div class="col-2 pl-0 p-0" style="height: 100vh;">
+                <div style="position: fixed;width: 220px;">
+                    <p class="text-center font-weight-bold mt-3 mb-4" style="font-size: 120%">Budget Manager</p>
+                    <div onclick="showAdd_watch()" id="add_watch3" class="add_produre mt-3" style="width: 80%;background: blue;margin: auto;border-radius: 10px;padding: 12px;">
+                        <p id="management_user" class="mb-0" style="color: #fff; text-align: center;">Quản lí tài khoản</p>
+                    </div>
+                    
+
+                    <div class="add_produre mt-2" style="width: 85%;margin: auto;border-radius: 10px;display: flex;">
+                        <div class="icon_bar" style="width: 16%;padding: 7px;">
+                            <img src="">
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10  p-0">
+                <div class="row m-0 p-0 ">
+
+                    <div id="management_user_box" class="col-12 bg-white mt-1" style="height: 570px;">
+                        <p class="font-weight-bold" style="font-size: 130%">Quản lý tài khoản</p>
+                        <button onclick="showAddUser()" class="btn btn-primary">Thêm tài khoản</button>
+                        <div id="input_user" style="display: none;">
+                            <div class="row m-0 shadow-sm pt-3">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Username</label>
+                                        <input type="text" class="form-control" id="userNameAddInput" placeholder="Nhập username">
+                                        <input class="float-right" type="text" id="txtId" name="txtPrice" style="border:0; border-radius: 10px;height: 40px;background:#f8fafd;width:100%;outline: none;display: none;">
+                                    </div>
+                                </div>
+                                <div class="col-3" style="height: 100px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Password</label>
+                                        <input type="email" class="form-control" id="passwordAddInput" placeholder="Nhập password">
+                                    </div>
+                                </div>
+                                <div class="col-3" style="height: 100px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Confirm Password</label>
+                                        <input type="passwork" class="form-control" id="rePasswordAddInput" placeholder="Nhập lại password">
+                                    </div>
+                                </div>
+
+                                <div class="col-8 p-0  pl-3 pb-4">
+                                    <button id="addUser" onclick="AddUser()" class="btn btn-primary float-left" style="background: #ff6f47;border: 1px solid #ff6f47;">Thêm</button>
+                                    <button id="updateUser" onclick="SaveUserAdmin()" class="btn btn-warning text-white float-left" style="display: none;">Cập
+                                        nhật</button>
+                                    <button onclick="CloseUser()" class="btn btn-danger text-white ml-1">Đóng</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="input_change_user" style="display: none;">
+                            <div class="row m-0 shadow-sm pt-3">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Username</label>
+                                        <input type="text" class="form-control" id="userNameChangeInput" placeholder="Nhập username">
+                                        <input class="float-right" type="text" id="txtId" name="txtPrice" style="border:0; border-radius: 10px;height: 40px;background:#f8fafd;width:100%;outline: none;display: none;">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-3" style="height: 100px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Địa chỉ</label>
+                                        <input type="text" class="form-control" id="addressChangeInput" placeholder="Mật khẩu">
+                                    </div>
+                                </div> -->
+                                <div class="col-3" style="height: 100px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Password</label>
+                                        <input type="text" class="form-control" id="phoneChangeInput" placeholder="Nhập lại password">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-3" style="height: 100px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Ngân hàng</label>
+                                        <select class="form-control" id="bankChangeInput">
+                                            <option value="viettinbank">viettinbank</option>
+                                            <option value="dongabank">dongabank</option>
+                                            <option value="dongabank">namabank</option>
+                                            <option value="dongabank">Nhận hàng thanh toán</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+
+                                <div class="col-8 p-0  pl-3 pb-4">
+                                    <button id="updateUser" onclick="SaveUserAdmin()" class="btn btn-warning text-white float-left">Cập nhật</button>
+                                    <button onclick="CloseUser()" class="btn btn-danger text-white ml-1">Đóng</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="cart_box pl-5 pt-4 shadow-sm mt-3 pb-4" style="width: 100%;margin: auto;">
+                            <div id="scroll_height" data-spy="scroll" data-target="#myScrollspy" data-offset="10" style="height:450px;overflow-y: scroll;padding-top: 5px;padding-right: 10px;">
+                                <table class="table table-borderless">
+                                    <thead>
+
+                                    </thead>
+
+                                    <tbody>
+                                        <div id="prinfManagementUser" class="row m-0">
+
+                                        </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="management_watch_box" class="col-12 bg-white mt-1" style="height: 570px;display: none;">
+                        <p class="font-weight-bold" style="font-size: 130%">Quản lý sản phẩm</p>
+                        <div id="input_watch2" style="display: none;">
+                            <div class="row m-0 shadow-sm pt-3">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tên sản phẩm</label>
+                                        <input type="text" class="form-control" id="watchAddNameInput" placeholder="Nhập tên đồng hồ">
+                                        <input class="float-right" type="text" id="txtId" name="txtPrice" style="border:0; border-radius: 10px;height: 40px;background:#f8fafd;width:100%;outline: none;display: none;">
+                                    </div>
+                                </div>
+                                <div class="col-3" style="height: 100px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Mô tả sản phẩm</label>
+                                        <input type="email" class="form-control" id="watchAddNoteInput" placeholder="Mô tả đồng hồ">
+                                    </div>
+                                </div>
+                                <div class="col-3" style="height: 100px;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Giá</label>
+                                        <input type="number" class="form-control" id="watchAddPriceInput" placeholder="Nhập giá đồng hồ">
+                                    </div>
+                                </div>
+                                <div class="col-3 p-0 pt-3 pl-3" style="height: 100px;">
+                                    <div class="btn btn-rounded waves-effect btn-sm" style="border-radius: 10px;width: 90%;background: #ff6f47">
+                                        <span class="text-white">Chọn hình ảnh</span>
+                                        <input class="text-white" type="file" type="file" name="file" id="watchAddImageInput">
+                                    </div>
+                                </div>
+                                <div class="col-8 p-0  pl-3 pb-4">
+                                    <button id="addwatch2" onclick="AddWatch()" class="btn btn-primary float-left" style="background: #ff6f47;border: 1px solid #ff6f47;">Thêm</button>
+                                    <button id="updatewatch2" onclick="SaveUpdateWatch()" class="btn btn-warning text-white float-left" style="display: none;">Cập
+                                        nhật</button>
+                                    <button onclick="CloseWatch()" class="btn btn-danger text-white ml-1">Đóng</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="cart_box pl-5 pt-4 shadow-sm mt-3 pb-4" style="width: 100%;margin: auto;">
+                            <div id="scroll_height2" data-spy="scroll" data-target="#myScrollspy" data-offset="10" style="height:450px;overflow-y: scroll;padding-top: 5px;padding-right: 10px;">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 40%;font-size: 115%;">Sản phẩm</th>
+                                            <th scope="col" style="width: 20%;font-size: 115%;" class="text-center">Giá tiền</th>
+                                            <th scope="col" style="width: 20%;font-size: 115%;" class="text-center">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="prinfManagementWatch">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="admin.js"></script>
+
+</html>
